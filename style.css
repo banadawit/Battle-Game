@@ -1,0 +1,239 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(
+    to bottom left,
+    hsl(11, 80%, 47%) 0%,
+    hsl(39, 44%, 80%) 100%
+  );
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin: 10px auto;
+  width: 80%;
+}
+
+div {
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  height: 300px;
+
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.main-img {
+  position: relative;
+  width: 150px;
+  height: 100px;
+  max-width: 100%;
+  margin-bottom: 10px;
+  top: -50px;
+}
+
+.winning,
+.looses {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  margin-top: 10px;
+  height: 40px;
+}
+
+.winning p,
+.looses p {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  flex: 1;
+}
+
+.winning {
+  color: green;
+  background-color: rgb(160, 152, 152);
+}
+.looses {
+  color: red;
+  background-color: rgb(91, 88, 85);
+}
+
+.win-loose {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  div {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+}
+
+.selection {
+  color: hsl(30, 100%, 50%);
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 25px;
+}
+
+.draw {
+  color: hsl(0, 0%, 40%);
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.aggressive {
+  background: linear-gradient(
+    to bottom right,
+    hsl(0, 80%, 45%) 0%,
+    hsl(10, 90%, 50%) 50%,
+    hsl(30, 100%, 55%) 100%
+  );
+  cursor: pointer;
+}
+
+.flexible {
+  background: linear-gradient(
+    to bottom right,
+    hsl(160, 70%, 50%) 0%,
+    hsl(190, 60%, 55%) 50%,
+    hsl(220, 50%, 60%) 100%
+  );
+  cursor: pointer;
+}
+
+.protective {
+  background: linear-gradient(
+    to bottom right,
+    hsl(120, 70%, 40%) 0%,
+    hsl(130, 60%, 45%) 50%,
+    hsl(140, 50%, 55%) 100%
+  );
+  cursor: pointer;
+}
+
+.aggressive:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.flexible:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
+
+.protective:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Strategy Text Colors */
+.aggr {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: red;
+}
+
+.flex {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: hsl(190, 89%, 32%);
+}
+
+.prot {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: green;
+}
+
+/* Help Section Styling */
+.help-section {
+  display: flex;
+  align-items: right;
+  justify-content: flex-start;
+  height: 40px;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  margin: 20px 0;
+  width: fit-content; /* Width adjusts to content */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth background color change */
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  z-index: 1000;
+}
+
+.help-section:hover {
+  background-color: #e0e0e0; /* Darken background on hover */
+}
+
+.help-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-right: 10px;
+}
+
+.help-arrow {
+  font-size: 2rem;
+  color: #333;
+}
+.intro {
+  align-items: center;
+  color: #f0f0f0;
+}
+
+.help-content {
+  display: none;
+  position: fixed; /* Keeps the help section fixed on the screen */
+  font-size: 15px;
+  top: 1%;
+  right: 10%;
+  width: 80%;
+  /* height: 70%; */
+  background-color: gray;
+  color: #dbd0d0;
+  border: 2px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensures it's on top of other content */
+  justify-content: start;
+}
+
+.stra {
+  background-color: gray;
+}

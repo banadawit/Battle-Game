@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X-empire Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h3 class="selection">Select a strategy</h3>
+    <main>
+      <div class="aggressive">
+        <img class="main-img" src="images/image-1.jpg" alt="Lion" />
+        <p class="aggr">Aggressive</p>
+        <div class="winning">
+          <p>Winning</p>
+          <img class="win-loose" src="images/image-2.jpg" alt="Snake" />
+        </div>
+        <div class="looses">
+          <p>Looses</p>
+          <img class="win-loose" src="images/image-3.jpg" alt="turtle" />
+        </div>
+      </div>
+
+      <div class="flexible">
+        <img class="main-img" src="images/image-2.jpg" alt="snake" />
+        <p class="flex">Flexible</p>
+        <div class="winning">
+          <p>Winning</p>
+          <img class="win-loose" src="images/image-3.jpg" alt="turtle" />
+        </div>
+        <div class="looses">
+          <p>Looses</p>
+          <img class="win-loose" src="images/image-1.jpg" alt="lion" />
+        </div>
+      </div>
+      <div class="protective">
+        <img class="main-img" src="images/image-3.jpg" alt="turtle" />
+        <p class="prot">Protective</p>
+        <div class="winning">
+          <p>Winning</p>
+          <img class="win-loose" src="images/image-1.jpg" alt="lion" />
+        </div>
+        <div class="looses">
+          <p>Looses</p>
+          <img class="win-loose" src="images/image-2.jpg" alt="snake" />
+        </div>
+      </div>
+    </main>
+    <div class="help-section">
+      <span class="help-text" 
+        ><span class="help-arrow">&#10067</span>Show Tutorial</span
+      >
+    </div>
+    <!-- Invisible help content -->
+    <div id="help-content" class="help-content">
+      <h2 class="intro">Introduction to the Strategy</h2>
+      <p>In this game, it is important to choose a strategy.</p>
+      <p>Every strategy can win someover except if the opponent choose the same strategy. </p>
+      <div class="stra">
+        <p><span class="aggr">Aggressive</span> wins <span class="flex">Flexible</span></p>
+        <p><span class="flex">Flexible</span> wins <span class="prot">Protective</span></p>
+        <p><span class="prot">Protective</span> wins <span class="aggr">Aggressive</span></p>
+      </div>
+      <p>improve skills to win more often</p>
+    </div>
+
+    <p class="draw">
+      If both oppenents have the same strategy, the game will be draw
+    </p>
+    <script src="script.js"></script>
+  </body>
+</html>
