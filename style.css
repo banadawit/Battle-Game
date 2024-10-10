@@ -37,7 +37,6 @@ div {
   justify-content: flex-start;
   padding: 10px;
   height: 300px;
-
   border-radius: 8px;
   background-color: #f9f9f9;
 }
@@ -52,7 +51,7 @@ div {
 }
 
 .winning,
-.looses {
+.loses {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -64,7 +63,7 @@ div {
 }
 
 .winning p,
-.looses p {
+.loses p {
   margin: 0;
   font-size: 1.4rem;
   font-weight: bold;
@@ -75,7 +74,7 @@ div {
   color: green;
   background-color: rgb(160, 152, 152);
 }
-.looses {
+.loses {
   color: red;
   background-color: rgb(91, 88, 85);
 }
@@ -143,16 +142,8 @@ div {
   cursor: pointer;
 }
 
-.aggressive:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
-}
-
-.flexible:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s;
-}
-
+.aggressive:hover,
+.flexible:hover,
 .protective:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease-in-out;
@@ -211,19 +202,14 @@ div {
   font-size: 2rem;
   color: #333;
 }
-.intro {
-  align-items: center;
-  color: #f0f0f0;
-}
 
 .help-content {
   display: none;
   position: fixed; /* Keeps the help section fixed on the screen */
-  font-size: 15px;
+  font-size: 1.5rem;
   top: 1%;
   right: 10%;
   width: 80%;
-  /* height: 70%; */
   background-color: gray;
   color: #dbd0d0;
   border: 2px solid #ccc;
