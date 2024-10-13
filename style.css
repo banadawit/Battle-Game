@@ -223,3 +223,50 @@ div {
 .stra {
   background-color: gray;
 }
+
+/* Selected Strategy Visual Feedback */
+.selected {
+  border: 3px solid yellow;
+  box-shadow: 0 0 10px yellow;
+  transform: scale(1.1); /* Enlarge the selected strategy */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Win Highlight */
+.win-highlight {
+  border: 3px solid green;
+  box-shadow: 0 0 10px green;
+}
+
+/* Lose Highlight */
+.lose-highlight {
+  border: 3px solid red;
+  box-shadow: 0 0 10px red;
+}
+
+/* Draw Highlight */
+.draw-highlight {
+  border: 3px solid gray;
+  box-shadow: 0 0 10px gray;
+}
+
+/* Fullscreen overlay for result */
+.result-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background with transparency */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it appears on top of everything */
+  visibility: hidden; /* Initially hidden */
+}
+
+.result-overlay h1 {
+  color: white;
+  font-size: 5rem;
+  text-align: center;
+}
