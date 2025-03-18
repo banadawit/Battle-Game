@@ -3,59 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>X-empire Game</title>
+    <meta name="description" content="X-Empire Game: A web-based strategy game where players choose between Aggressive, Flexible, and Protective strategies to outsmart their opponent." />
+    <title>X-Empire Game</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   </head>
   <body>
     <h3 class="selection">Select a strategy</h3>
     <main>
-      <div class="aggressive">
-        <img class="main-img" src="images/image-1.jpg" alt="Aggressive Lion" />
-        <p class="aggr">Aggressive</p>
+      <!-- Aggressive Strategy -->
+      <section class="strategy aggressive" data-strategy="aggressive">
+        <figure>
+          <img class="main-img" src="images/aggressive-lion.jpg" alt="Aggressive Lion" />
+          <figcaption class="aggr">Aggressive</figcaption>
+        </figure>
         <div class="winning">
           <p>Winning</p>
-          <img class="win-loose" src="images/image-2.jpg" alt="Snake" />
+          <img class="win-loose" src="images/flexible-snake.jpg" alt="Flexible Snake" />
         </div>
         <div class="loses">
           <p>Loses</p>
-          <img class="win-loose" src="images/image-3.jpg" alt="Turtle" />
+          <img class="win-loose" src="images/protective-turtle.jpg" alt="Protective Turtle" />
         </div>
-      </div>
+      </section>
 
-      <div class="flexible">
-        <img class="main-img" src="images/image-2.jpg" alt="Flexible Snake" />
-        <p class="flex">Flexible</p>
+      <!-- Flexible Strategy -->
+      <section class="strategy flexible" data-strategy="flexible">
+        <figure>
+          <img class="main-img" src="images/flexible-snake.jpg" alt="Flexible Snake" />
+          <figcaption class="flex">Flexible</figcaption>
+        </figure>
         <div class="winning">
           <p>Winning</p>
-          <img class="win-loose" src="images/image-3.jpg" alt="Turtle" />
+          <img class="win-loose" src="images/protective-turtle.jpg" alt="Protective Turtle" />
         </div>
         <div class="loses">
           <p>Loses</p>
-          <img class="win-loose" src="images/image-1.jpg" alt="Lion" />
+          <img class="win-loose" src="images/aggressive-lion.jpg" alt="Aggressive Lion" />
         </div>
-      </div>
+      </section>
 
-      <div class="protective">
-        <img class="main-img" src="images/image-3.jpg" alt="Protective Turtle" />
-        <p class="prot">Protective</p>
+      <!-- Protective Strategy -->
+      <section class="strategy protective" data-strategy="protective">
+        <figure>
+          <img class="main-img" src="images/protective-turtle.jpg" alt="Protective Turtle" />
+          <figcaption class="prot">Protective</figcaption>
+        </figure>
         <div class="winning">
           <p>Winning</p>
-          <img class="win-loose" src="images/image-1.jpg" alt="Lion" />
+          <img class="win-loose" src="images/aggressive-lion.jpg" alt="Aggressive Lion" />
         </div>
         <div class="loses">
           <p>Loses</p>
-          <img class="win-loose" src="images/image-2.jpg" alt="Snake" />
+          <img class="win-loose" src="images/flexible-snake.jpg" alt="Flexible Snake" />
         </div>
-      </div>
+      </section>
     </main>
 
-    <div class="help-section">
+    <!-- Help Section -->
+    <button class="help-section" aria-expanded="false">
       <span class="help-text">
         <span class="help-arrow">&#10067</span>Show Tutorial
       </span>
-    </div>
+    </button>
 
-    <!-- Invisible help content -->
+    <!-- Invisible Help Content -->
     <div id="help-content" class="help-content">
       <h2 class="intro">Introduction to the Strategy</h2>
       <p>In this game, it is important to choose a strategy.</p>
@@ -68,10 +80,12 @@
       <p>Improve your skills to win more often.</p>
     </div>
 
+    <!-- Draw Message -->
     <p class="draw">
       If both opponents have the same strategy, the game will be a draw.
     </p>
 
+    <!-- Result Overlay -->
     <div id="result-overlay" class="result-overlay">
       <h1 id="result-message"></h1>
     </div>
