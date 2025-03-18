@@ -1,31 +1,28 @@
 // Elements
 const helpSection = document.querySelector(".help-section");
 const helpContent = document.getElementById("help-content");
-const strategies = document.querySelectorAll(
-  ".aggressive, .flexible, .protective"
-);
-const resultText = document.querySelector(".draw"); // Will update the result here
-const overlay = document.getElementById("result-overlay"); // Overlay for result
-const resultMessage = document.getElementById("result-message"); // Message in overlay
+const strategies = document.querySelectorAll(".strategy");
+const resultText = document.querySelector(".draw");
+const overlay = document.getElementById("result-overlay");
+const resultMessage = document.getElementById("result-message");
 
 // Audio Elements for Sound Effects
-const winSound = new Audio("sounds/win.mp3"); // Add the sound file paths
+const winSound = new Audio("sounds/win.mp3");
 const loseSound = new Audio("sounds/lose.mp3");
 const drawSound = new Audio("sounds/draw.mp3");
 
-// Ensure we stop all sounds before playing new ones
+// Stop All Sounds
 function stopAllSounds() {
   winSound.pause();
   loseSound.pause();
   drawSound.pause();
 
-  // Reset the audio to the start
   winSound.currentTime = 0;
   loseSound.currentTime = 0;
   drawSound.currentTime = 0;
 }
 
-// Strategy Relationships (Winning Logic)
+// Strategy Relationships
 const strategyMap = {
   aggressive: { winsAgainst: "flexible", losesTo: "protective" },
   flexible: { winsAgainst: "protective", losesTo: "aggressive" },
@@ -44,22 +41,21 @@ function getRandomStrategy() {
   return keys[Math.floor(Math.random() * keys.length)];
 }
 
-// Handle User Selection of Strategy
+// Handle Strategy Selection
 strategies.forEach((strategy) => {
   strategy.addEventListener("click", function () {
     clearSelection();
-    stopAllSounds(); // Stop any currently playing sounds
-    const userStrategy = this.classList[0]; // Get class like 'aggressive'
+    stopAllSounds();
+    const userStrategy = this.classList[1]; // Get the strategy class (aggressive, flexible, protective)
     const opponentStrategy = getRandomStrategy();
 
     displayResult(userStrategy, opponentStrategy);
-    this.classList.add("selected"); // Add highlight to the selected strategy
+    this.classList.add("selected");
   });
 });
 
-// Display Game Result
 function displayResult(userStrategy, opponentStrategy) {
-  clearHighlights(); // Remove previous highlights
+  clearHighlights();
 
   const userElement = document.querySelector(`.${userStrategy}`);
   const opponentElement = document.querySelector(`.${opponentStrategy}`);
@@ -68,12 +64,22 @@ function displayResult(userStrategy, opponentStrategy) {
 
   if (userStrategy === opponentStrategy) {
     resultText.textContent =
-      "It's a Draw! Both chose " + capitalizeFirstLetter(userStrategy);
+      "It's a Draw! Both choose " + capitalizeFirstLetter(userStrategy);
     resultText.style.color = "gray";
     userElement.classList.add("draw-highlight");
     opponentElement.classList.add("draw-highlight");
-    drawSound.play(); // Play draw sound
-    result = "It's a Draw!";
+    drawSound.play();
+    result = "It's a Draw! Both choose " + capitalizeFirstLetter(userStrategy);
+
+    // Style for draw
+    resultMessage.textContent = result;
+    resultMessage.style.color = "gray"; // Gray text for draw
+    resultMessage.style.fontSize = "4rem";
+    resultMessage.style.fontWeight = "bold";
+    resultMessage.style.backgroundColor = "rgba(255, 255, 255, 0.9)"; // Light background
+    resultMessage.style.padding = "20px";
+    resultMessage.style.borderRadius = "10px";
+    resultMessage.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)";
   } else if (strategyMap[userStrategy].winsAgainst === opponentStrategy) {
     resultText.textContent =
       "You Win! " +
@@ -83,8 +89,22 @@ function displayResult(userStrategy, opponentStrategy) {
     resultText.style.color = "green";
     userElement.classList.add("win-highlight");
     opponentElement.classList.add("lose-highlight");
-    winSound.play(); // Play win sound
-    result = "You Win!";
+    winSound.play();
+    result =
+      "You Win! " +
+      capitalizeFirstLetter(userStrategy) +
+      " beats " +
+      capitalizeFirstLetter(opponentStrategy);
+
+    // Style for win
+    resultMessage.textContent = result;
+    resultMessage.style.color = "green"; // Green text for win
+    resultMessage.style.fontSize = "4rem";
+    resultMessage.style.fontWeight = "bold";
+    resultMessage.style.backgroundColor = "rgba(0, 0, 0, 0.7)"; // Dark background
+    resultMessage.style.padding = "20px";
+    resultMessage.style.borderRadius = "10px";
+    resultMessage.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)";
   } else {
     resultText.textContent =
       "You Lose! " +
@@ -94,25 +114,36 @@ function displayResult(userStrategy, opponentStrategy) {
     resultText.style.color = "red";
     userElement.classList.add("lose-highlight");
     opponentElement.classList.add("win-highlight");
-    loseSound.play(); // Play lose sound
-    result = "You Lose!";
+    loseSound.play();
+    result =
+      "You Lose! " +
+      capitalizeFirstLetter(opponentStrategy) +
+      " beats " +
+      capitalizeFirstLetter(userStrategy);
+
+    // Style for lose
+    resultMessage.textContent = result;
+    resultMessage.style.color = "red"; // Red text for lose
+    resultMessage.style.fontSize = "4rem";
+    resultMessage.style.fontWeight = "bold";
+    resultMessage.style.backgroundColor = "rgba(0, 0, 0, 0.7)"; // Dark background
+    resultMessage.style.padding = "20px";
+    resultMessage.style.borderRadius = "10px";
+    resultMessage.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)";
   }
 
-  // Show the overlay with the result
-  showResultOverlay(result);
+  showResultOverlay(result); // Show the result on the full page
 }
 
-// Helper function to capitalize the first letter of a string
+// Helper Functions
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-// Clear previous selection
 function clearSelection() {
   strategies.forEach((strategy) => strategy.classList.remove("selected"));
 }
 
-// Clear previous highlights
 function clearHighlights() {
   strategies.forEach((strategy) => {
     strategy.classList.remove(
@@ -123,19 +154,11 @@ function clearHighlights() {
   });
 }
 
-// Function to show the result overlay
 function showResultOverlay(message) {
-  resultMessage.textContent = message; // Set the result message
-  overlay.style.visibility = "visible"; // Make the overlay visible
+  resultMessage.textContent = message;
+  overlay.style.display = "flex";
 
-  // Hide the game content temporarily
-  document.querySelector("main").style.display = "none";
-  document.querySelector(".help-section").style.display = "none";
-
-  // After 3 seconds, hide the overlay and show the game content again
   setTimeout(() => {
-    overlay.style.visibility = "hidden"; // Hide the overlay
-    document.querySelector("main").style.display = "flex"; // Show game content again
-    document.querySelector(".help-section").style.display = "flex";
-  }, 5000); // Adjust the delay as needed
+    overlay.style.display = "none";
+  }, 3000);
 }
