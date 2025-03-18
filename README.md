@@ -51,4 +51,7 @@ If both players choose the **same strategy**, the game ends in a **draw**.
 
 ---
 
-## 📂 **Project Structure**
+## 🚀 **Getting Started**
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/banadawit/Battle-Game.git
