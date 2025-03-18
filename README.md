@@ -1,9 +1,11 @@
 # 🥰 X-Empire Game
 
-🌟 **Overview**  
+## 🌟 **Overview**  
 X-Empire Game is a simple and engaging web-based game built using **HTML, CSS, and JavaScript**. Players can choose between three unique strategies: **Aggressive**, **Flexible**, and **Protective**. Each strategy has its own strengths and weaknesses, and the outcome is determined by the strategies selected by both the player and their opponent.  
 
+![Game Screenshot](./images/pig-game.png)
 ---
+
 
 ## 🌟 **Features**
 
